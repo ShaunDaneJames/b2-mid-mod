@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-describe Park, type: :model do
-  it 'average_rating' do
+describe "As a user" do
+  describe "When I visit a mechanic's show page" do
+    it "I see their name, years of exp,
+    and names of all rides they're working on" do
     jimbob = Mechanic.create!(name: "Jimbob",
                               years_of_exp: 20)
     park = Park.create!(name: "6 Flags",
@@ -14,11 +16,14 @@ describe Park, type: :model do
                           rating: 7,
                           park_id: park.id,
                           mechanic_id: jimbob.id)
-    ride_3 = Ride.create!(name: "The Great Bear",
-                          rating: 8,
-                          park_id: park.id,
-                          mechanic_id: jimbob.id)
 
-    expect(park.average_rating).to eq(8)
+    visit "/mechanics/#{jimbob.id}"
+
+    expect(page).to have_content(jimbob.name)
+    expect(page).to have_content(jimbob.years_of_exp)
+    expect(page).to have_content(jimbob.years_of_exp)
+    expect(page).to have_content(ride_1.name)
+    expect(page).to have_content(ride_2.name)                        
+    end
   end
 end
