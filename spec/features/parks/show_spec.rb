@@ -12,7 +12,7 @@ describe "As a visitor" do
       visit "/parks/#{park.id}"
 
       expect(page).to have_content("#{park.name}")
-      expect(page).to have_content("#{park.price}")
+      expect(page).to have_content("$#{park.price}")
     end
   end
 end
