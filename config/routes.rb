@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get '/mechanics', to: 'mechanics#index'
 
   #Parks
-  get '/parks/:park-id', to: 'parks#show'
+  get '/parks/:id', to: 'parks#show'
 end
