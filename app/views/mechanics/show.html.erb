@@ -1,7 +1,20 @@
 <h1>Mechanic Show Page</h1>
 
+<br>
+
 <%= @mechanic.name %>
 <%= @mechanic.years_of_exp %>
+
+<br>
+
 <% @mechanic.rides.each do |ride| %>
+<h3>Current rides they're working on:</h3>
 <%= ride.name %>
+<% end %>
+
+<br>
+<%= form_tag("/mechanics/#{@mechanic.id}", method: :patch) do %>
+<%= label_tag :Add_ride_to_workload %>
+<%= text_field_tag :Add_ride_to_workload %>
+<%= submit_tag "Submit"%>
 <% end %>
