@@ -2,3 +2,7 @@
 
 <%= @park.name %>
 $<%= @park.price %>
+<% @park.rides.each do |ride| %>
+<%= ride.name %>
+<% end %>
+<%= @park.average_rating %>
